@@ -21,6 +21,10 @@
     "react": "* || ^0.14.0"
   },
   "devDependencies": {
+    "babel-eslint": "^8.0.1",
+    "eslint": "^4.7.2",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-react": "^7.4.0",
     "grunt": "^0.4.4",
     "grunt-babel": "^5.0.1",
     "grunt-cli": "^0.1.13",
@@ -36,7 +40,6 @@
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-spec-reporter": "0.0.12",
     "load-grunt-tasks": "^3.2.0",
-    "markdownlint": "0.0.7",
     "mocha": "^1.18.2",
     "react": "^0.14.0"
   },
