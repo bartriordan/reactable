@@ -1,6 +1,5 @@
 import {stringable} from './stringable'
-
-const isDefined = candidate => ((typeof candidate) !== 'undefined' && candidate !== null)
+import {isDefined} from './typeChecks'
 
 const hasReactableMeta = candidate => (isDefined(candidate) && candidate.__reactableMeta === true) // eslint-disable-line no-underscore-dangle
 
@@ -17,4 +16,4 @@ const extractDataFrom = (key, column) => {
   return (stringable(value) ? value : '')
 }
 
-export default extractDataFrom
+export {extractDataFrom}

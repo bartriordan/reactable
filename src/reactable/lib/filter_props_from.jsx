@@ -38,4 +38,4 @@ const filterPropsFrom = (baseProps = {}) => externalKeys(baseProps).reduce(
   {}
 )
 
-export default filterPropsFrom
+export {filterPropsFrom}

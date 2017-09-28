@@ -1,8 +1,3 @@
-import React from 'react';
+const Tfoot = props => <tfoot {...props} />
 
-export class Tfoot extends React.Component {
-    render() {
-        return <tfoot {...this.props} />;
-    }
-}
-
+export {Tfoot}

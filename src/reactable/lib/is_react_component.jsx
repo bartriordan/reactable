@@ -5,4 +5,4 @@ const isReactComponent = thing => (
   (typeof thing.props) !== 'undefined'
 )
 
-export default isReactComponent
+export {isReactComponent}

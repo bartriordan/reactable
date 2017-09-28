@@ -1,19 +1,14 @@
-import React from 'react';
-import { isUnsafe } from './unsafe';
-import { filterPropsFrom } from './lib/filter_props_from';
+import {Component} from 'react'
 
-export class Th extends React.Component {
-    render() {
-        let childProps;
+import {filterPropsFrom} from './lib/filter_props_from'
+import {isUnsafe} from './unsafe'
 
-        if (isUnsafe(this.props.children)) {
-            return <th {...filterPropsFrom(this.props)}
-                dangerouslySetInnerHTML={{__html: this.props.children.toString()}}/>
-        } else {
-            return <th {...filterPropsFrom(this.props)}>
-                {this.props.children}
-            </th>;
-        }
-    }
-};
 
+export class Th extends Component {
+  render() {
+    if (isUnsafe(this.props.children))
+      return <th {...filterPropsFrom(this.props)} dangerouslySetInnerHTML={{__html: this.props.children.toString()}} />
+
+    return <th {...filterPropsFrom(this.props)}>{this.props.children}</th>
+  }
+}

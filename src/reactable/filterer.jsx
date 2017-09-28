@@ -1,39 +1,60 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import classnames from 'classnames'
+import {Component, PropTypes} from 'react'
+import ReactDOM from 'react-dom'
 
-export class FiltererInput extends React.Component {
-    onChange() {
-        this.props.onFilter(ReactDOM.findDOMNode(this).value);
-    }
+export class FiltererInput extends Component {
+  constructor() {
+    super()
 
-    render() {
-        return (
-            <input type="text"
-                className={this.props.className}
-                placeholder={this.props.placeholder}
-                value={this.props.value}
-                onKeyUp={this.onChange.bind(this)}
-                onChange={this.onChange.bind(this)} />
-        );
-    }
-};
+    this.onChange = this.onChange.bind(this)
+  }
 
-export class Filterer extends React.Component {
-    render() {
-        if (typeof this.props.colSpan === 'undefined') {
-            throw new TypeError('Must pass a colSpan argument to Filterer');
-        }
+  onChange() { this.props.onFilter(ReactDOM.findDOMNode(this).value) }
 
-        return (
-            <tr className="reactable-filterer">
-                <td colSpan={this.props.colSpan}>
-                    <FiltererInput onFilter={this.props.onFilter}
-                        value={this.props.value}
-                        placeholder={this.props.placeholder}
-                        className={this.props.className ? 'reactable-filter-input ' + this.props.className : 'reactable-filter-input'} />
-                </td>
-            </tr>
-        );
-    }
-};
+  render() {
+    return (
+      <input
+        className={classnames('reactable-filter-input', this.props.className)}
+        onChange={this.onChange}
+        onKeyUp={this.onChange}
+        placeholder={this.props.placeholder}
+        type='text'
+        value={this.props.value}
+      />
+    )
+  }
+}
 
+FiltererInput.propTypes = {
+  onFilter: PropTypes.func,
+  placeholder: PropTypes.string,
+  value: PropTypes.node
+}
+
+
+export class Filterer extends Component {
+  render() {
+    if (typeof this.props.colSpan === 'undefined')
+      throw new TypeError('Must pass a colSpan argument to Filterer')
+
+    return (
+      <tr className='reactable-filterer'>
+        <td colSpan={this.props.colSpan}>
+          <FiltererInput
+            onFilter={this.props.onFilter}
+            className={this.props.className}
+            placeholder={this.props.placeholder}
+            value={this.props.value}
+          />
+        </td>
+      </tr>
+    )
+  }
+}
+
+Filterer.propTypes = {
+  colSpan: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  onFilter: PropTypes.func,
+  placeholder: PropTypes.string,
+  value: PropTypes.node
+}

@@ -1,17 +1,9 @@
 class Unsafe {
-    constructor(content) {
-        this.content = content;
-    }
+  constructor(content) { this.content = content }
 
-    toString() {
-        return this.content;
-    }
+  toString() { return this.content }
 }
 
-export function unsafe(str) {
-    return new Unsafe(str);
-};
+export function unsafe(str) { return new Unsafe(str) }
 
-export function isUnsafe(obj) {
-    return obj instanceof Unsafe;
-};
+export function isUnsafe(obj) { return obj instanceof Unsafe }

@@ -11,4 +11,4 @@ const contextWrapper = (context, childContextTypes, child) => {
   return <ContextWrapper />
 }
 
-export default contextWrapper
+export {contextWrapper}

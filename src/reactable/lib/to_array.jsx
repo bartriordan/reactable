@@ -7,4 +7,4 @@ const toArray = thing => {
   return ret
 }
 
-export default toArray
+export {toArray}
