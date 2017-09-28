@@ -1,9 +1,10 @@
-export function toArray(obj) {
-    var ret = [];
-    for (var attr in obj) {
-        ret[attr] = obj;
-    }
+const toArray = thing => {
+  var ret = []
+  for (var attr in thing) {
+    ret[attr] = thing
+  }
 
-    return ret;
+  return ret
 }
 
+export default toArray

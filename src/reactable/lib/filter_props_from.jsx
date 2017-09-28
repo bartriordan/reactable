@@ -1,43 +1,41 @@
-const internalProps = {
-    hideTableHeader: true,
-    column: true,
-    columns: true,
-    sortable: true,
-    filterable: true,
-    filtering: true,
-    onFilter: true,
-    filterPlaceholder: true,
-    filterClassName: true,
-    currentFilter: true,
-    sort: true,
-    sortBy: true,
-    sortableColumns: true,
-    onSort: true,
-    defaultSort: true,
-    defaultSortDescending: true,
-    itemsPerPage: true,
-    filterBy: true,
-    hideFilterInput: true,
-    noDataText: true,
-    currentPage: true,
-    onPageChange: true,
-    previousPageLabel: true,
-    nextPageLabel: true,
-    pageButtonLimit: true,
-    childNode: true,
-    data: true,
-    children: true
-};
-
-export function filterPropsFrom(baseProps) {
-    baseProps = baseProps || {};
-    var props = {};
-    for (var key in baseProps) {
-        if (!(key in internalProps)) {
-            props[key] = baseProps[key];
-        }
-    }
-
-    return props;
+const INTERNAL_PROPS = {
+  childNode: true,
+  children: true,
+  column: true,
+  columns: true,
+  currentFilter: true,
+  currentPage: true,
+  data: true,
+  defaultSort: true,
+  defaultSortDescending: true,
+  filterable: true,
+  filterBy: true,
+  filterClassName: true,
+  filtering: true,
+  filterPlaceholder: true,
+  hideFilterInput: true,
+  hideTableHeader: true,
+  itemsPerPage: true,
+  nextPageLabel: true,
+  noDataText: true,
+  onFilter: true,
+  onPageChange: true,
+  onSort: true,
+  pageButtonLimit: true,
+  previousPageLabel: true,
+  sort: true,
+  sortable: true,
+  sortableColumns: true,
+  sortBy: true
 }
 
+const INTERNAL_PROPS_KEYS = Object.keys(INTERNAL_PROPS)
+
+const externalKeys = props => Object.keys(props).filter(key => !INTERNAL_PROPS_KEYS.includes(key))
+
+const filterPropsFrom = (baseProps = {}) => externalKeys(baseProps).reduce(
+  (output, key) => ({...output, [key]: baseProps[key]}),
+  {}
+)
+
+export default filterPropsFrom

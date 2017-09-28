@@ -1,25 +1,20 @@
-import { stringable } from './stringable';
+import {stringable} from './stringable'
 
-export function extractDataFrom(key, column) {
-    var value;
-    if (
-        typeof(key) !== 'undefined' &&
-            key !== null &&
-                key.__reactableMeta === true
-    ) {
-        value = key.data[column];
-    } else {
-        value = key[column];
-    }
+const isDefined = candidate => ((typeof candidate) !== 'undefined' && candidate !== null)
 
-    if (
-        typeof(value) !== 'undefined' &&
-            value !== null &&
-                value.__reactableMeta === true
-    ) {
-        value = (typeof(value.props.value) !== 'undefined' && value.props.value !== null) ?
-            value.props.value : value.value;
-    }
+const hasReactableMeta = candidate => (isDefined(candidate) && candidate.__reactableMeta === true) // eslint-disable-line no-underscore-dangle
 
-    return (stringable(value) ? value : '');
+const extractDataFrom = (key, column) => {
+  let value
+  if (hasReactableMeta(key))
+    value = key.data[column]
+  else
+    value = key[column]
+
+  if (hasReactableMeta(value))
+    value = isDefined(value.props.value) ? value.props.value : value.value
+
+  return (stringable(value) ? value : '')
 }
+
+export default extractDataFrom
