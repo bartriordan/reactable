@@ -1,6 +1,6 @@
 import {Component} from 'react'
 
-import {filterPropsFrom} from './lib/filter_props_from'
+import filterPropsFrom from './lib/filter_props_from'
 import {isUnsafe} from './unsafe'
 
 

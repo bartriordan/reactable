@@ -3,7 +3,7 @@ import {Children, Component, PropTypes} from 'react'
 import {Th} from './th'
 
 import {Filterer} from './filterer'
-import {filterPropsFrom} from './lib/filter_props_from'
+import filterPropsFrom from './lib/filter_props_from'
 import {isNotUndefined, isObject, isString, isUndefined} from './lib/typeChecks'
 
 

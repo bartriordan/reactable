@@ -1,10 +1,10 @@
 import {Component, PropTypes} from 'react'
 
-import {filterPropsFrom} from './lib/filter_props_from'
+import filterPropsFrom from './lib/filter_props_from'
 import {isNotUndefined, isObject, isUndefined} from './lib/typeChecks'
-import {isReactComponent} from './lib/is_react_component'
+import isReactComponent from './lib/is_react_component'
 import {isUnsafe} from './unsafe'
-import {stringable} from './lib/stringable'
+import stringable from './lib/stringable'
 
 
 export class Td extends Component {

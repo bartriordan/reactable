@@ -4,4 +4,4 @@ const stringable = thing => (
   (typeof thing.toString) === 'function'
 )
 
-export {stringable}
+export default stringable

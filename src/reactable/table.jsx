@@ -7,8 +7,8 @@ import {Thead} from './thead'
 import {Th} from './th' // TODO: look into why this isn't used --BLR
 import {Tr} from './tr'
 
-import {extractDataFrom} from './lib/extract_data_from'
-import {filterPropsFrom} from './lib/filter_props_from'
+import extractDataFrom from './lib/extract_data_from'
+import filterPropsFrom from './lib/filter_props_from'
 import typeChecks from './lib/typeChecks'
 
 

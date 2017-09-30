@@ -2,9 +2,9 @@ import React from 'react'
 
 import {Td} from './td'
 
-import {filterPropsFrom} from './lib/filter_props_from'
+import filterPropsFrom from './lib/filter_props_from'
 import {isDefined, isFunction, isUndefined} from './lib/typeChecks'
-import {toArray} from './lib/to_array'
+import toArray from './lib/to_array'
 
 
 export class Tr extends React.Component {
