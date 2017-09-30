@@ -497,7 +497,15 @@ Table.defaultProps = {
 }
 
 Table.propTypes = {
-  columns: PropTypes.array,
+  columns: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.shape({
+        key: PropTypes.string,
+        label: PropTypes.string
+      }),
+      PropTypes.string
+    ])
+  ),
   currentPage: PropTypes.number,
   data: PropTypes.array,
   defaultSort: PropTypes.node,
@@ -515,5 +523,8 @@ Table.propTypes = {
   onSort: PropTypes.func,
   pageButtonLimit: PropTypes.number,
   previousPageLabel: PropTypes.string,
-  sortBy: PropTypes.node
+  sortBy: PropTypes.shape({
+    column: PropTypes.string,
+    direction: PropTypes.string
+  })
 }

@@ -106,7 +106,12 @@ export class Thead extends Component {
 }
 
 Thead.propTypes = {
-  columns: PropTypes.node,
+  columns: PropTypes.arrayOf(
+    PropTypes.shape({
+      key: PropTypes.string,
+      label: PropTypes.string
+    })
+  ),
   currentFilter: PropTypes.string,
   filtering: PropTypes.bool,
   filterClassName: PropTypes.string,
@@ -117,5 +122,5 @@ Thead.propTypes = {
     column: PropTypes.node,
     direction: PropTypes.node
   }),
-  sortableColumns: PropTypes.array
+  sortableColumns: PropTypes.object
 }

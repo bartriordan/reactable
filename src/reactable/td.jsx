@@ -40,7 +40,13 @@ export class Td extends Component {
 }
 
 Td.propTypes = {
-  column: PropTypes.node,
+  column: PropTypes.oneOfType([
+    PropTypes.shape({
+      key: PropTypes.string,
+      label: PropTypes.string
+    }),
+    PropTypes.string
+  ]),
   data: PropTypes.array,
   handleClick: PropTypes.func
 }
